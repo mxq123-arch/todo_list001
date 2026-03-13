@@ -1,5 +1,6 @@
 package com.zero.todo_list001
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -121,7 +122,7 @@ fun TodoListTopBar() {
         },
         title = {
             Text(
-                text = "Today’s Tasks",
+                text = "今日任务",
                 fontSize = 19.textPx(),
                 fontWeight = FontWeight.SemiBold
             )
@@ -142,6 +143,7 @@ data class DayInfo(
     val dayOfWeek: String,
     val isToday: Boolean
 )
+
 
 val dayInfoList = buildList {
     val today = LocalDate.now()
@@ -248,7 +250,7 @@ val CustomShape = GenericShape { size, _ ->
 @Composable
 fun CategoryRow() {
     val categories = remember {
-        listOf("All", "To do", "In progress", "Completed")
+        listOf("所有", "即将", "进行中", "完成")
     }
     var currentIndex by remember { mutableIntStateOf(0) }
     Row(
@@ -270,9 +272,9 @@ fun CategoryRow() {
                     .background(
                         color = if (isSelected) Color(0xFF5F33E1) else Color(0xFFEDE8FF)
                     )
-                    .clickable {
-                        currentIndex = index
-                    }
+//                    .clickable {
+//                        currentIndex = index
+//                    }
                     .padding(vertical = 8.px(), horizontal = 24.px()),
                 category = category,
                 isSelected = isSelected
@@ -310,14 +312,14 @@ data class Task(
 
 val tasks = listOf(
     Task(
-        "Market Research",
+        "Market Researchwwwd1的我",
         "Grocery shopping app design",
         "Done",
         "10:00 AM",
         R.mipmap.briefcase
     ),
     Task(
-        "Competitive Analysis",
+        "Competitive Analysiswww",
         "Grocery shopping app design",
         "In Progress",
         "12:00 PM",
@@ -331,7 +333,14 @@ val tasks = listOf(
         R.mipmap.user
     ),
     Task(
-        "How to pitch a Design Sprint",
+        "How to pitch a Design Sprin1212t",
+        "About design sprint",
+        "To-do",
+        "09:00 PM",
+        R.mipmap.book
+    ),
+    Task(
+        "How to pitch a Design Sprint121",
         "About design sprint",
         "To-do",
         "09:00 PM",
@@ -522,9 +531,10 @@ fun TodoListBottomBar() {
                         modifier = Modifier
                             .weight(1f)
                             .fillMaxHeight()
-                            .clickable {
-                                currentIndex = index
-                            },
+//                            .clickable {
+//                                currentIndex = index
+//                            }
+                            ,
                         icon = icon,
                         isSelected = currentIndex == index
                     )
